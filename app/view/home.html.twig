@@ -2,10 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello {{ name|capitalize|e }} ! :)</title>
+    <title>Hello Sifoni ! :)</title>
+    <link rel="stylesheet" href="/styles/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/css/styles.css">
+    <script type="text/javascript" src="/styles/js/jquery.js"></script>
 </head>
 <body>
-    <h1>Welcome to {{ name|capitalize|e }} ! :)</h1>
-    <a target="_blank" href="http://sifoni.com/post"> link post</a>
+  <div class='container'>
+    <div class='row'>
+    <div class='col-md-12'>
+        <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="">Trang chu</a></li>
+                <li><a target="_blank" href="http://sifoni.com/post"> List post</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+
+        </nav>
+    </div>
+    <div id='content'>
+        <div class='col-md-9'>
+            <div id="content">{% block content %}{% endblock %}</div>
+        </div>
+        <div class='col-md-3'>
+            <div id="sidebar">{% block sidebar %}{% endblock %}</div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <footer>
+            2015 website design by <a href="">Tinh nguyen</a> 
+        </footer>    
+    </div>
+
+    </div>
+</div>
+
 </body>
 </html>

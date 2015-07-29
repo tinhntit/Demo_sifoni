@@ -1,26 +1,41 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List</title>
-</head>
-<body>
+{% extends 'home.html.twig' %}
+{% block content %}
     <h3>Bài đăng</h3>
-<table>
+<table class="table table-bordered">
     <tr>
-        <th>Stt</th>
-        <th>Tiêu đề</th>
-        <th>Nội dung</th>
+        <th class="col-md-1">Stt</th>
+        <th class="col-md-5">Tiêu đề</th>
+        <th class="col-md-4">Nội dung</th>
+        <th class="col-md-2">Người đăng</th>
     </tr>
+    {% if post%}
+    {% for data in post %}
     <tr>
-        <td>{{ 1 }}</th>
-        <td><a href ="">{{post}}</a></td>
-        <td>{{text}}</td>
+        <td class="text-center">{{data.post_id}}</th>
+        <td><a href = "">{{data.title}}</a></td>
+        <td>{{ data.text }}</td>
+        <td class="text-center">{{ data.user_id }}</td>
     </tr>
-<!--
+    {% endfor %}
+    {% else %}
     <tr>
-        <td><strong>Chưa có bài đăng nào.</strong></td>
-    </tr>-->
+        <td colspan="4" class="text-center"><strong>Chưa có bài đăng nào.</strong></td>
+    </tr>
+    {% endif %}
 </table>
-</body>
-</html>
+{% endblock %}
+{% block sidebar %}
+<h3>Menu Chính</h3>
+            <ul class="nav nav-pills nav-stacked" style="background: #222;">
+                {% if user %}
+                {% for data in user %}
+                <li><a href="">Welcome <strong>{{data.fullname }}</strong></a></li>
+                <li><a href="" >Đăng bài</a></li>
+                <li><a href="">Logout</a></li>
+                {% endfor %}
+                {% else %}
+                <li><a href="">Login</a></li>
+                <li><a href="">Register</a></li>
+                {% endif %}
+            </ul>
+{% endblock %}           
