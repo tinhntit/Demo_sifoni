@@ -3,15 +3,13 @@
     <h3>Bài đăng</h3>
 <table class="table table-bordered">
     <tr>
-        <th class="col-md-1">Stt</th>
         <th class="col-md-5">Tiêu đề</th>
-        <th class="col-md-4">Nội dung</th>
+        <th class="col-md-5">Nội dung</th>
         <th class="col-md-2">Người đăng</th>
     </tr>
     {% if post%}
     {% for data in post %}
     <tr>
-        <td class="text-center">{{data.post_id}}</th>
         <td><a href = "">{{data.title}}</a></td>
         <td>{{ data.text }}</td>
         <td class="text-center">{{ data.user_id }}</td>
